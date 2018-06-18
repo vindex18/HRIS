@@ -9,7 +9,6 @@ class AuthController {
     public function __construct($container){
         //var_dump("\nAuthController Constructed!");
         //var_dump($container); die();
-        
     }
 
     public function validatecredentials(Request $req, Response $res){

@@ -1,7 +1,7 @@
 <?php
-//use Psr\Http\Message\ServerRequestInterface;
-//use Psr\Http\Message\ResponseInterface;
-//use \Interop\Container\ContainerInterface as ContainerInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use \Interop\Container\ContainerInterface as ContainerInterface;
 
 date_default_timezone_set('Asia/Manila'); //CDT
 
@@ -10,7 +10,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = new \Slim\App([ //Init Slim App
     'settings' => [
         'displayErrorDetails' => true,
-        //'determineRouteBeforeAppMiddleware' => false,
+        'determineRouteBeforeAppMiddleware' => true,
         //'addContentLengthHeader' => false,
     'db' => [
         'driver' => 'mysql',
@@ -80,9 +80,17 @@ $app->add(function ($request, $response, $next) {
 	return $response;
 });*/
 
-$app->add(new \App\Middleware\AuthMiddleware($container));
-
 //Adding Middleware
+
+$app->add(new \App\Middleware\Auth($container));
+
+
+// $app->add(function ($request, $response, $next) {
+//     $id = $request->getAttribute('route');
+//     var_dump($id); die();
+//     return $next($request, $response);
+// });
+
 require __DIR__ . '/../src/routes.php'; //Route Summary
 //$app->add(new \App\Middleware\ValidationErrorsMiddleware()); 
 

@@ -10,6 +10,10 @@ class AttendanceController {
        
     }
 
+    function addAttendance(Request $req, Response $res){
+        return var_dump(AttendanceService::addAttendance($req, $res));
+    }
+
     function getEmployeeAttendance(Request $req, Response $res, $args){
         return var_dump(AttendanceService::getEmployeeAttendance($req, $res));
     }

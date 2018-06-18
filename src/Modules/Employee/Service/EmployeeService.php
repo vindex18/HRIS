@@ -32,7 +32,6 @@ class EmployeeService {
     }
 
     function addEmployee($req, $res){
-        
         $validation = Validator::validate($req, [
             'firstname' => v::notEmpty()->alpha(),
             'lastname' => v::notEmpty()->alpha(),
@@ -70,9 +69,7 @@ class EmployeeService {
 
     function getEmployee($req, $res, $args){
         $emp_id = base64_decode(urldecode($req->getAttribute('str')));
-        //$emp_id = strip_tags($req->getAttribute('emp_id')); 
-        return (is_numeric($emp_id)) ? EmployeeModel::where('id', $emp_id)->first()->toArray() : null;
-        //else
-        //var_dump("On Going"); die();
+        var_dump($emp_id); die();
+        return (is_numeric($emp_id)) ? EmployeeModel::where('id', $emp_id)->first() : null;
     }
 }
