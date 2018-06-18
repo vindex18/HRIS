@@ -19,7 +19,8 @@ class Auth {
 
     function __invoke(Request $req, Response $res, $next){
         //var_dump('Auth Middleware Invoked!<br>');
-        //var_dump($req); die();
+        return $next($req, $res);
+         /*
         $route = $req->getAttribute("route");
         $token = false;
         //var_dump($route); die("<br>Done");
@@ -35,7 +36,7 @@ class Auth {
         else //Secured Requests
         {
            //die("X");
-            if($req->hasHeader('Authorization')&&isset($req->getHeader('Authorization')[0])&&!empty($req->getHeader('Authorization')[0])){
+           if($req->hasHeader('Authorization')&&isset($req->getHeader('Authorization')[0])&&!empty($req->getHeader('Authorization')[0])){
                 $key = Auth::jwtSecret(); //Get Secret Key
                 $payload = $req->getHeader('Authorization')[0];
                 $authorization = explode(".", $req->getHeader('Authorization')[0]);
@@ -63,7 +64,7 @@ class Auth {
                 return $res->withJSON(['message' => 'Unauthorized Request', 'token' => $token], 401);
             }
         }
-        return $res->withJSON(['message' => 'Unauthorized Request', 'token' => $token], 401);
+        return $res->withJSON(['message' => 'Unauthorized Request', 'token' => $token], 401);*/
     }
     
     function jwtSecret(){
