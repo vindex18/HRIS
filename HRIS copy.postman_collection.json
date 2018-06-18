@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "88ef09db-aa90-4eec-a14f-1498546455f4",
+		"_postman_id": "7591a470-28c1-4cb9-89eb-7692dd40b86d",
 		"name": "HRIS copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,7 +9,12 @@
 			"name": "Adding Employee Record",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+					}
+				],
 				"body": {
 					"mode": "formdata",
 					"formdata": [
@@ -75,13 +80,18 @@
 			"name": "Get Employee Record",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTkzMDAsImV4cCI6MTUyOTMwNjUwMCwianRpIjoibmk4R0JGQ0NPZ05GNFZYd1NJNWk1UDhDUTFGRzE2b0lmSzNzR3B0eVNHUiIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.AEOQLZfB5FG6dr5FILBr69AfxpwGx645G-_U-72egpY"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost/hris/public/employee/employeerecord/Mg%3D%3D",
+					"raw": "localhost/hris/public/employee/employeerecord/MQ%3D%3D",
 					"host": [
 						"localhost"
 					],
@@ -90,7 +100,7 @@
 						"public",
 						"employee",
 						"employeerecord",
-						"Mg%3D%3D"
+						"MQ%3D%3D"
 					]
 				},
 				"description": "Getting Employee Record"
@@ -104,7 +114,12 @@
 					"type": "bearer"
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTgwOTksImV4cCI6MTUyOTMwNTI5OSwianRpIjoic0hTUWRQREJ2d3U2NWpqUDQ1Q3hoWVpEUHdjbjZlYXRwcUtRVGpPSmdrYyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ._ri4MFk0I8VnUokBfXO9qW5vBz_2TSkWYcdOL0-M2po"
+					}
+				],
 				"body": {
 					"mode": "formdata",
 					"formdata": [
@@ -136,60 +151,15 @@
 			"response": []
 		},
 		{
-			"name": "Root Testing Middleware",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost/hris/public/",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"hris",
-						"public",
-						""
-					]
-				},
-				"description": "Root Testing for Middleware Flow"
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Employee Record",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost/hris/public/employee/allemployee/",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"hris",
-						"public",
-						"employee",
-						"allemployee",
-						""
-					]
-				},
-				"description": "Getting All Employee Record"
-			},
-			"response": []
-		},
-		{
 			"name": "Attendance All EMP",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
@@ -220,7 +190,12 @@
 					"type": "bearer"
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTkzMDAsImV4cCI6MTUyOTMwNjUwMCwianRpIjoibmk4R0JGQ0NPZ05GNFZYd1NJNWk1UDhDUTFGRzE2b0lmSzNzR3B0eVNHUiIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.AEOQLZfB5FG6dr5FILBr69AfxpwGx645G-_U-72egpY"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
@@ -248,8 +223,16 @@
 			"name": "Delete Attendance EMP",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "localhost/hris/public/attendance/employeeattendance/10",
 					"host": [
@@ -270,8 +253,16 @@
 			"name": "Delete Employee",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "localhost/hris/public/employee/employeerecord/Mg%3D%3D",
 					"host": [
@@ -292,8 +283,16 @@
 			"name": "Excel All EMP Attendance",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDQ0NDksImV4cCI6MTUyOTMxMTY0OSwianRpIjoiTVlRSE92cWZ3TDhCN0x3YWVkcXFJOFFuWk13V3B3M3htQW9vWk1HT3lTZCIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.i7-F-ed6bKmofjKj87SkJgS8Qf91cCylb5yzNWLzI1E"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost/hris/public/reports/attendance/attendancereport/toexcel/1528646400/1528732800/",
 					"protocol": "http",
@@ -310,6 +309,108 @@
 						"1528646400",
 						"1528732800",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add EMP Attendance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTgwOTksImV4cCI6MTUyOTMwNTI5OSwianRpIjoic0hTUWRQREJ2d3U2NWpqUDQ1Q3hoWVpEUHdjbjZlYXRwcUtRVGpPSmdrYyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ._ri4MFk0I8VnUokBfXO9qW5vBz_2TSkWYcdOL0-M2po"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id\n",
+							"value": "MQ%3D%3D",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tag",
+							"value": "MQ%3D%3D",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "2018-06-18 13:00:00",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/hris/public/attendance/employeeattendance",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"attendance",
+						"employeeattendance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All AttendanceType",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/hris/public/attendancetype",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"attendancetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ALL EMP Rec",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/hris/public/employee",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"employee"
 					]
 				}
 			},
