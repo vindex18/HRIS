@@ -64,6 +64,10 @@ $container['ReportController'] = function($container){
     return new \App\Modules\Reports\Attendance\Controllers\ReportController;
 };
 
+$container['AttendancetypeController'] = function($container){
+    return new \App\Modules\Attendancetype\Controllers\AttendancetypeController;
+};
+
 $container['validator'] = function($container){
     return new \App\Utils\Validator;
 };
@@ -83,7 +87,6 @@ $app->add(function ($request, $response, $next) {
 //Adding Middleware
 
 $app->add(new \App\Middleware\Auth($container));
-
 
 // $app->add(function ($request, $response, $next) {
 //     $id = $request->getAttribute('route');

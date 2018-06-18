@@ -11,6 +11,10 @@ class AttendanceDao {
         
     }
 
+    function addAttendance($type_id, $emp_id, $datetime){
+        
+    }
+
     function getDistinctDateAttendanceOfEmployee($from, $to, $emp_id){
         //DB::connection()->enableQueryLog();
         return DB::table('attendance as a')

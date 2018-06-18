@@ -7,29 +7,34 @@ use Firebase\JWT\ExpiredException;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+/*
+    jwtSecret function holds the secret key
+*/
+
 class Auth {
     function __construct(){
-        //var_dump(urlencode(base64_encode(2)));
         //var_dump('Auth Middleware Constructed!<br>');
+        //echo urlencode(base64_encode(1)); die();
     }
 
     function __invoke(Request $req, Response $res, $next){
         //var_dump('Auth Middleware Invoked!<br>');
+        //var_dump($req); die();
         $route = $req->getAttribute("route");
         $token = false;
-        //echo $route; die("<br>Done");
+        //var_dump($route); die("<br>Done");
         //$route->getPattern() == "/exec/book"
         //var_dump($req->getUri()->getPath()); die();
         //if($route->getUri()->getPath()->getPattern() == "/authorization/validatecredentials")
 
-        if($route->getPattern() == "/authorization/validatecredentials") //User trying to login
+        if(isset($route)&&!empty($route)&&$route->getPattern() == "/authorization/validatecredentials") //User trying to login
         {       
             //echo "For Login";
             return $next($req, $res);
         }
         else //Secured Requests
         {
-            //echo "Secure<br>";
+           //die("X");
             if($req->hasHeader('Authorization')&&isset($req->getHeader('Authorization')[0])&&!empty($req->getHeader('Authorization')[0])){
                 $key = Auth::jwtSecret(); //Get Secret Key
                 $payload = $req->getHeader('Authorization')[0];
@@ -54,10 +59,11 @@ class Auth {
             }
             else
             {
-                echo "No Header and/or Value";
+                //echo "No Header and/or Value";
                 return $res->withJSON(['message' => 'Unauthorized Request', 'token' => $token], 401);
             }
         }
+        return $res->withJSON(['message' => 'Unauthorized Request', 'token' => $token], 401);
     }
     
     function jwtSecret(){

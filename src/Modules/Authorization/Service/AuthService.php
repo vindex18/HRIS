@@ -60,13 +60,14 @@ class AuthService {
         ];
 
         $secret = Auth::jwtSecret();
+        return JWT::encode($payload, $secret, "HS256");
         /*$jwt = JWT::encode($payload, $secret, "HS256");
         $decoded = JWT::decode($jwt, $secret, array('HS256'));
 
         print_r($decoded);
         die();*/
 
-        return JWT::encode($payload, $secret, "HS256");
+       
     }
 
 }

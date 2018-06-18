@@ -3,6 +3,8 @@
 namespace App\Modules\Attendance\Service;
 use App\Modules\Attendance\Models\AttendanceModel;
 use App\Modules\Attendance\Dao\AttendanceDao;
+use Respect\Validation\Validator as v;
+use App\Utils\Validator;
 
 class AttendanceService {
     function getAllEmployeeAttendance($req, $res){
@@ -11,7 +13,7 @@ class AttendanceService {
         $dtfrom = date('Y-m-d H:i:s', strip_tags($req->getAttribute('dtfrom')));
         $dtto = date('Y-m-d H:i:s', strip_tags($req->getAttribute('dtto')));
         $accstat = strip_tags($req->getAttribute('accstat'));
-        //var_dump($dtfrom); var_dump($dtto); var_dump($accstat."<br>"); die();
+       
         if(empty($dtfrom))
             $dtfrom = AttendanceDao::getMinimumDTOfEmployeeAttendance();
             
@@ -19,11 +21,9 @@ class AttendanceService {
             $dtto = AttendanceDao::getMaximumDTOfEmployeeAttendance();
 
         (empty($accstat)) ? $accstat = "is_active IS NOT NULL" : $accstat = "is_active = ".$accstat;
-        //$dtfrom = '1497110400'; $dtto = '1497196800';
-        //var_dump("<br><br>");
-        //var_dump($dtfrom); var_dump($dtto); var_dump($accstat."<br>"); //die();
+ 
         $data =  AttendanceDao::getAllEmployeeAttendance($dtfrom, $dtto, $accstat)->toArray();
-        //var_dump($data);die();
+
         echo "From: ".date('M d, Y g:i A', strtotime($dtfrom))." To: ".date('M d, Y g:i A', strtotime($dtto))."<br>";
         for($c=0;$c<count($data);$c++){
             echo $data[$c]->last_name.", ".$data[$c]->first_name."<br>";
@@ -32,8 +32,22 @@ class AttendanceService {
 
         }
         die();
-        //return AttendanceDao::getAllEmployeeAttendance($dtfrom, $dtto, $accstat)->toArray();
-        //var_dump($obj[1]->first_name); die();
+    }
+
+    function addAttendance($req, $res){
+        $validation = Validator::validate($req, [
+            'id' => v::notEmpty(),
+            'tag' => v::notEmpty(),
+            'datetime' => v::notEmpty()
+        ]); 
+        
+        if(!is_null($validation))
+           return $validation;
+
+        $emp_id = base64_decode(urldecode($req->getAttribute('id')));
+        $type_id = strip_tags($req->getAttribute('tag'));
+        $datetime = date('Y-m-d H:i:s', strtotime($req->getAttribute('datetime')));
+        return (is_numeric($emp_id)) ? AttendanceDao::addAttendance($type_id, $emp_id, $datetime) : null;
     }
 
     function getEmployeeAttendance($req, $res){ 
@@ -44,7 +58,7 @@ class AttendanceService {
         $emp_id = base64_decode(urldecode($req->getAttribute('emp_id')));
         //var_dump(urlencode(base64_encode(1))); die();
         echo "From: ".date('M d, Y g:i A', strtotime($dtfrom))." To: ".date('M d, Y g:i A', strtotime($dtto))."<br>";
-        return (is_numeric($emp_id)) ? AttendanceDao::getEmployeeAttendance($dtfrom, $dtto, $emp_id)->toArray() : null;
+        return (is_numeric($emp_id)) ? AttendanceDao::getEmployeeAttendance($dtfrom, $dtto, $emp_id) : null;
     }
 
     function deleteEmployeeAttendance($req, $res){

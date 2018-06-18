@@ -1,3 +1,3 @@
 <?php
 
-$app->get('/attendancetype/getallattendancetype', 'AttendanceTypeController::getAllAttendanceType');
+$app->get('/attendancetype', 'AttendancetypeController:getAllAttendanceType');

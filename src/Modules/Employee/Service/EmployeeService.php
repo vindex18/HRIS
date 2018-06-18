@@ -9,7 +9,7 @@ use App\Utils\Validator;
 
 class EmployeeService {
     function __construct($container){
-
+      
     }
 
     function checkEmailExistsOnAddEmployee($email){
@@ -24,7 +24,7 @@ class EmployeeService {
 
     function deleteemployee($req, $res){
         $emp_id = base64_decode(urldecode($req->getAttribute('str')));
-        return (is_numeric($emp_id)) ?EmployeeModel::where('id', $emp_id)->delete() : null;
+        return (is_numeric($emp_id)) ? EmployeeModel::where('id', $emp_id)->delete() : null;
     }
 
     function updateEmployee($req, $res){
@@ -60,16 +60,14 @@ class EmployeeService {
                                 'password' => password_hash(strip_tags($req->getParam('password')), PASSWORD_DEFAULT)
                                 ])->save();
 
-            if($qry)
-                return array('status' => 'success', 'msg' => $qry, 'tk' => ''); 
-            else
-                return array('status' => 'failed', 'msg'=> 'No User Found!', 'tk' =>'');
+            return ($qry) ? array('status' => 'success', 'msg' => $qry) : array('status' => 'failed', 'msg'=> 'Failed to Create New Employee!');
         }
     }
 
     function getEmployee($req, $res, $args){
+        //echo urlencode(base64_encode(1)); die();
         $emp_id = base64_decode(urldecode($req->getAttribute('str')));
-        var_dump($emp_id); die();
+        //var_dump($emp_id); die();
         return (is_numeric($emp_id)) ? EmployeeModel::where('id', $emp_id)->first() : null;
     }
 }
